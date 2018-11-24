@@ -1,0 +1,265 @@
+html, body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0;
+    margin:0;
+    background-color: white;
+}
+
+/* Global */
+.container {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+
+
+/* Header */
+header {
+    background-color: white;
+    color: dodgerblue;
+    min-height: 80px;
+    border-bottom: aqua 6px solid;
+    margin-bottom: 0;
+}
+
+header a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: dodgerblue;
+}
+
+header nav {
+    margin-top: 13px;
+    float: right;
+    text-align: center;
+    width: 50%;
+}
+
+header ul {
+    text-align: center;
+    cursor: default;
+    margin-top: 25px;
+}
+
+header li {
+    padding: 0 20px 0 20px;
+    margin: 0 30px 0 30px;
+    display: inline;
+}
+
+header .current {
+    text-decoration: underline;
+}
+
+header #brand {
+    text-transform: uppercase;
+    float: left;
+    cursor: default;
+    margin-left: 20px;
+}
+
+header #brand h1 {
+    margin: 0px;
+}
+
+.hvr-outline-in {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+}
+.hvr-outline-in:before {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    border: dodgerblue solid 4px;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    left: -10px;
+    opacity: 0;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: top, right, bottom, left;
+    transition-property: top, right, bottom, left;
+}
+.hvr-outline-in:hover:before, .hvr-outline-in:focus:before, .hvr-outline-in:active:before {
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    opacity: 1;
+}
+  
+
+
+
+/* Showcase */
+.row {
+    display: flex;
+}
+
+#toggle {
+    margin-top: 5px;
+    margin-left: 20px;
+    transition: 0.5s;
+}
+
+#sidebar {
+    width: 0px;
+    min-height: 700px;
+    background-color: white;
+    left: 0;
+    position: absolute;
+    transition: 0.5s;
+    opacity: 0.85;
+}
+
+#sidebar #content_table {
+    display: none;
+}
+
+#sidebar #content_table h2 {
+    font-weight: normal;
+    margin-top: -38px;
+    margin-left: 20px;
+}
+
+#sidebar #sect_list {
+    height: 630px; /* !!! */
+    overflow: auto;
+}
+
+/* #sidebar #content_table ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar #content_table li {
+    padding: 10px 20px 10px 20px;
+    cursor: pointer;
+    background-color: white;
+}
+
+#sidebar #content_table li:hover {
+    cursor: pointer;
+    background-color: aqua;
+} */
+
+.collapsibleList li{
+  /* list-style-image : url('button.png'); */
+  background-color: aqua;  
+  cursor           : auto;
+}
+
+li.collapsibleListOpen{
+  /* list-style-image : url('button-open.png'); */
+  cursor           : pointer;
+}
+
+li.collapsibleListClosed{
+  /* list-style-image : url('button-closed.png'); */
+  cursor           : pointer;
+}
+*/
+#map {
+    flex: 70%;
+    max-height: 700px;
+}
+
+#map img {
+    max-height: 700px;
+    padding: 0;
+}
+
+
+#info {
+    flex: 30%;
+    height: 700px;
+    background-color: white;
+    border-left: 6px aqua solid;
+    overflow: auto;
+}
+
+#info h2 {  /* =#obj_title */
+    margin: 0;
+    font-weight: normal;
+    text-transform: uppercase;
+    padding-top: 10px;
+    text-align: center;
+}
+
+#info p {  /* =#obj_description */
+    margin: 0;
+    padding: 20px;
+    text-align: justify;
+}
+
+footer {
+    text-align: center;
+    height: 50px;
+    background-color: aqua;
+    color: navy;
+}
+
+footer p {
+    margin: 0;
+    padding-top: 15px;
+}
+
+
+
+
+@media (max-width: 768px) {
+    header nav {
+        margin-top: 5px;
+        float: none;
+        width: 100%;
+    }
+
+    header ul {
+        margin: 5px 0 5px 0;
+        padding: 0;
+    }
+
+    header li {
+        padding: 0 15px 0 15px;
+        margin: 0;
+    }
+
+    header #brand {
+        float: none;
+        margin: 5px;
+    }
+
+    header #brand h1 {
+        text-align: center;
+        font-weight: normal;
+        line-height: 1;
+    }
+
+    .row {
+        display: block;
+    }
+
+    #map {
+        width: 100%;
+    }
+
+    #map img{
+        width: 100%;
+    }
+
+    #map_description {
+        min-height: 0px;
+        border-left: none;
+        padding-top: 0px;
+    }
+}
