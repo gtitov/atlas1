@@ -9,6 +9,7 @@
     <meta name="author" content="Gman">
     <!-- CSS loading -->
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="./icons/favicon.png">
     <title>ВИЭ Крыма | Карты</title>
   </head>
@@ -34,19 +35,20 @@
     
     
         <div class="row" id="showcase">
-    
-            <section id="sidebar">
                 <div id="toggle" onclick="toggleContentTable()">
-                    <a href="#">
-                        <svg width="30" height="30">
-                            <path d="M0,5 30,5" stroke="dodgerblue" stroke-width="5" />
-                            <path d="M0,14 30,14" stroke="dodgerblue" stroke-width="5" />
-                            <path d="M0,23 30,23" stroke="dodgerblue" stroke-width="5" />
-                        </svg>
-                    </a>
+                        <a href="#">
+                            <svg width="30" height="30">
+                                <path d="M0,5 30,5" stroke="dodgerblue" stroke-width="5" />
+                                <path d="M0,14 30,14" stroke="dodgerblue" stroke-width="5" />
+                                <path d="M0,23 30,23" stroke="dodgerblue" stroke-width="5" />
+                            </svg>
+                        </a>
                 </div>
+        
+            <section id="sidebar">
                 <div id="content_table">
                     <h2>Содержание</h2>
+                    <div id="table_container"></div>
                 </div>
             </section>
     
@@ -106,7 +108,7 @@
                 "<ul></ul></li>";
         }
         sect_ul += "</ul>";  // Закрываем ul для списка разделов
-        document.getElementById('content_table').innerHTML += sect_ul; // Помещаем ul в раздел 'content_table'
+        document.getElementById('table_container').innerHTML += sect_ul; // Помещаем ul в раздел 'content_table'
 
         /* Распределяем карты по секциям (разделам, подразделам, сериям) */
         for(var m in maps) {
@@ -225,7 +227,7 @@
             var toggle = document.getElementById("toggle");
             if (sidebar.style.width != "350px") {  // Отталкиваемся от условия неравенства, так как проверяем параметр style, заданный в строке html, а его нет (он в css файле)
                 sidebar.style.width = "350px";
-                toggle.style.marginLeft = "310px";
+                toggle.style.marginLeft = "360px";
                 setTimeout(function(){content_table.style.display = "block";}, 350)  // Чтобы текст не перескакивал при развороте бокового меню, добавляем его через 0.3с после начала разворота
             } else {
                 sidebar.style.width = "0px";

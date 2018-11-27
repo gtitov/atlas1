@@ -89,35 +89,40 @@ header .current {
 #showcase {
     min-height: 600px;
     height: 100%;
+     position: relative; /* необходим для позиционирования sidebar относительно этого элемента */
 }
 
 #toggle {
-    margin-top: 5px;
+    position: absolute;
+    top: 5px;
     margin-left: 20px;
     transition: 0.5s;
+    z-index: 1;
 }
 
 #sidebar {
     width: 0px;
-    align-items: stretch;
-    background-color: red;
-    position: absolute;
+    background-color: white;
+    position: absolute; /* Whenever positioning anything absolutely, you need one of the parent containers to be positioned relative as this will make the item be positioned absolute to the parent container that is relative. */
     transition: 0.5s;
-    opacity: 0.85;
+    opacity: 0.95;
+    height: 100%;
+    left: 0;
+    overflow: auto;
 }
 
 #sidebar #content_table {
     display: none;
+
 }
 
 #sidebar #content_table h2 {
     font-weight: normal;
-    margin-top: -38px;
+    margin-top: 0px;
     margin-left: 20px;
 }
 
-#sidebar #content_table #sect_list {
-
+#sidebar #content_table #table_container {
 }
 
 .collapsibleList li{
@@ -168,6 +173,26 @@ li.collapsibleListClosed{
     text-align: justify;
 }
 
+.textarea {
+    min-height: 600px;
+    height: 100%;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: azure;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#index_text {
+    flex-basis: 75%;
+    text-align: justify;
+}
+
+#contacts_text {
+    flex-basis: 50%;
+    text-align: center;
+}
+
 footer {
     border-top: 5px solid aqua; 
     align-items: center;
@@ -184,6 +209,12 @@ footer p {
 
 
 
+@media(min-height: 1024px){
+    #showcase {
+        min-height: 1000px;
+        height: 100%;
+    }
+}
 
 @media (max-width: 1024px) {
     .row{
