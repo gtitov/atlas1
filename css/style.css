@@ -7,15 +7,15 @@ html, body {
     background-color: white;
 }
 
-/* Global */
 .container {
-    width: 100%;
-    margin: auto;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-
-
+.row {
+    width: 100%;
+    display: flex;
+}
 
 /* Header */
 header {
@@ -26,6 +26,32 @@ header {
     margin-bottom: 0;
 }
 
+#brand {
+    flex: 1;
+    text-transform: uppercase;
+    float: left;
+    cursor: default;
+    margin-left: 20px;
+}
+#brand h1 {
+    margin: 0px;
+}
+header nav {
+    flex: 1;
+    margin-top: 13px;
+}
+
+header ul {
+    display: flex;
+    justify-content: space-around;
+    cursor: default;
+    margin-top: 15px;
+}
+
+header li {
+    padding: 10px;
+}
+
 header a {
     text-decoration: none;
     text-transform: uppercase;
@@ -33,77 +59,36 @@ header a {
     color: dodgerblue;
 }
 
-header nav {
-    margin-top: 13px;
-    float: right;
-    text-align: center;
-    width: 50%;
-}
-
-header ul {
-    text-align: center;
-    cursor: default;
-    margin-top: 25px;
-}
-
-header li {
-    padding: 0 20px 0 20px;
-    margin: 0 30px 0 30px;
-    display: inline;
-}
-
 header .current {
-    text-decoration: underline;
+    border-bottom: 5px solid aqua;
 }
 
-header #brand {
-    text-transform: uppercase;
-    float: left;
-    cursor: default;
-    margin-left: 20px;
-}
-
-header #brand h1 {
-    margin: 0px;
-}
-
-.hvr-outline-in {
+/* Fade */
+.hvr-fade {
     display: inline-block;
     vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    position: relative;
-}
-.hvr-outline-in:before {
-    pointer-events: none;
-    content: '';
-    position: absolute;
-    border: dodgerblue solid 4px;
-    top: -10px;
-    right: -10px;
-    bottom: -10px;
-    left: -10px;
-    opacity: 0;
+    overflow: hidden;
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
-    -webkit-transition-property: top, right, bottom, left;
-    transition-property: top, right, bottom, left;
+    -webkit-transition-property: color, background-color;
+    transition-property: color, background-color;
 }
-.hvr-outline-in:hover:before, .hvr-outline-in:focus:before, .hvr-outline-in:active:before {
-    top: -8px;
-    right: -8px;
-    bottom: -8px;
-    left: -8px;
-    opacity: 1;
+
+.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
+    background-color: azure;
+    color: white;
 }
   
 
 
 
 /* Showcase */
-.row {
-    display: flex;
+#showcase {
+    min-height: 600px;
+    height: 100%;
 }
 
 #toggle {
@@ -114,9 +99,8 @@ header #brand h1 {
 
 #sidebar {
     width: 0px;
-    min-height: 700px;
-    background-color: white;
-    left: 0;
+    align-items: stretch;
+    background-color: red;
     position: absolute;
     transition: 0.5s;
     opacity: 0.85;
@@ -132,26 +116,9 @@ header #brand h1 {
     margin-left: 20px;
 }
 
-#sidebar #sect_list {
-    height: 630px; /* !!! */
-    overflow: auto;
-}
+#sidebar #content_table #sect_list {
 
-/* #sidebar #content_table ul {
-    list-style: none;
-    padding: 0;
 }
-
-#sidebar #content_table li {
-    padding: 10px 20px 10px 20px;
-    cursor: pointer;
-    background-color: white;
-}
-
-#sidebar #content_table li:hover {
-    cursor: pointer;
-    background-color: aqua;
-} */
 
 .collapsibleList li{
   /* list-style-image : url('button.png'); */
@@ -168,21 +135,20 @@ li.collapsibleListClosed{
   /* list-style-image : url('button-closed.png'); */
   cursor           : pointer;
 }
-*/
+
 #map {
-    flex: 70%;
-    max-height: 700px;
+    flex-basis: 70%;
 }
 
 #map img {
-    max-height: 700px;
+    width: 100%;
     padding: 0;
 }
 
 
 #info {
-    flex: 30%;
-    height: 700px;
+    flex-basis: 30%;
+    max-height: 1000px;
     background-color: white;
     border-left: 6px aqua solid;
     overflow: auto;
@@ -203,25 +169,39 @@ li.collapsibleListClosed{
 }
 
 footer {
-    text-align: center;
-    height: 50px;
-    background-color: aqua;
-    color: navy;
+    border-top: 5px solid aqua; 
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    margin: 0;
+    padding: 0;
 }
 
 footer p {
     margin: 0;
-    padding-top: 15px;
+    padding: 15px;
 }
 
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    .row{
+        flex-wrap: wrap;
+    }
+
+    header #brand {
+        margin: 5px;
+        flex-basis: 100%;
+    }
+
+    header #brand h1 {
+        text-align: center;
+        line-height: 1;
+    }
+
     header nav {
         margin-top: 5px;
-        float: none;
-        width: 100%;
     }
 
     header ul {
@@ -234,31 +214,16 @@ footer p {
         margin: 0;
     }
 
-    header #brand {
-        float: none;
-        margin: 5px;
-    }
-
-    header #brand h1 {
-        text-align: center;
-        font-weight: normal;
-        line-height: 1;
-    }
-
-    .row {
-        display: block;
+    #showcase {
+        min-height: 0;
     }
 
     #map {
-        width: 100%;
+        flex-basis: 100%;
     }
 
-    #map img{
-        width: 100%;
-    }
-
-    #map_description {
-        min-height: 0px;
+    #info {
+        flex-basis: 100%;
         border-left: none;
         padding-top: 0px;
     }
