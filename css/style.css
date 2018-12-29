@@ -89,7 +89,7 @@ header .current {
 #showcase {
     min-height: 600px;
     height: 100%;
-     position: relative; /* необходим для позиционирования sidebar относительно этого элемента */
+    position: relative; /* необходим для позиционирования sidebar относительно этого элемента */
 }
 
 #toggle {
@@ -143,6 +143,7 @@ li.collapsibleListClosed{
 
 #map {
     flex-basis: 70%;
+    min-height: 300px;
 }
 
 #map img {
